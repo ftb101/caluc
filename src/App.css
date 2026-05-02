@@ -1,0 +1,48 @@
+#root {
+  width: 200px;
+  margin: 0 auto;
+}
+#root .result {
+  height: 40px;
+  background-color: black;
+}
+#root .result .result-value {
+  text-align: end;
+  height: 100%;
+  font-size: 30px;
+  color: white;
+  padding-right: 15px;
+}
+#root .button-wrapper {
+  display: flex;
+  justify-content: center;
+  background-color: black;
+}
+#root .button-wrapper .operator {
+  display: flex;
+  flex-direction: column;
+}
+#root .button-wrapper .operator button {
+  background-color: orange;
+}
+#root .button-wrapper .operator button:hover {
+  background-color: #ffc7af;
+}
+#root .button-wrapper .operator button:focus {
+  background-color: white;
+  color: orange;
+}
+#root button {
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  margin: 5px;
+  background-color: #555;
+  color: white;
+  font-size: 25px;
+  border: none;
+}
+#root button:hover {
+  background-color: #999;
+}
+/*# sourceMappingURL=App.css.map */

@@ -25,7 +25,10 @@
     "eslint-plugin-react-hooks": "^7.1.1",
     "eslint-plugin-react-refresh": "^0.5.2",
     "globals": "^17.5.0",
+<<<<<<< HEAD
     "sass": "^1.99.0",
+=======
+>>>>>>> 73649df2d2b05c28fdc0753437691fee1a7717bd
     "typescript": "~6.0.2",
     "typescript-eslint": "^8.58.2",
     "vite": "^8.0.10"

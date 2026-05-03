@@ -1,170 +1,83 @@
-<<<<<<< HEAD
 
 import './App.scss'
+import { connect } from 'react-redux';
+import {
+  onNumberClick,
+  onClearClick,
+  onDivideClick,
+  onEqualClick,
+  onMinusClick,
+  onMultiplyClick,
+  onPlusClick
+} from './redux/actions';
 import Button from "./components/Button";
 import Result from "./components/Result";
+import calucrator from './redux/reducers/calucrator';
 
-function App() {
-  
+function App(props) {
+  const {calucrator,
+      onNumberClick,
+      onClearClick,
+      onDivideClick,
+      onEqualClick,
+      onMinusClick,
+      onMultiplyClick,
+      onPlusClick
+    }=props;
 
   return (
     <>
     
       <div className='result'>
-        <Result result={'計算結果'}/>
+        <Result result={calucrator.showResult ? calucrator.resultValue : calucrator.inputValue} />
       </div>
       <div className="button-wrapper">
         <div className="number">
           <div className="upper">
-            <Button text={'7'}/>
-            <Button text={'8'}/>
-            <Button text={'9'}/>
+            <Button text={'7'} onClick={() => onNumberClick(7)}/>
+            <Button text={'8'} onClick={()=>onNumberClick(8)}/>
+            <Button text={'9'} onClick={()=>onNumberClick(9)}/>
           </div>
           <div className="middle">
-            <Button text={'4'}/>
-            <Button text={'5'}/>
-            <Button text={'6'}/>
+            <Button text={'4'} onClick={()=>onNumberClick(4)}/>
+            <Button text={'5'} onClick={() => onNumberClick(5)}/>
+            <Button text={'6'} onClick={() => onNumberClick(6)}/>
           </div>
           <div className="lower">
-            <Button text={'1'}/>
-            <Button text={'2'}/>
-            <Button text={'3'}/>
+            <Button text={'1'} onClick={() => onNumberClick(1)}/>
+            <Button text={'2'} onClick={() => onNumberClick(2)}/>
+            <Button text={'3'} onClick={() => onNumberClick(3)}/>
           </div>
           <div className="bottom">
-            <Button text={'0'}/>
-            <Button text={'AC'}/>
-            <Button text={'='}/>
+            <Button text={'0'} onClick={() => onNumberClick(0)}/>
+            <Button text={'AC'} onClick={() => onClearClick()} />
+            <Button text={'='} onClick={() => onEqualClick()}/>
           </div>
         </div>
         <div className="operator">
-          <Button text={'÷'}/>
-          <Button text={'×'}/>
-          <Button text={'-'}/>
-          <Button text={'+'}/>
+          <Button text={'÷'} onClick={() => onDivideClick()}/>
+          <Button text={'×'} onClick={() => onMultiplyClick()}/>
+          <Button text={'-'} onClick={() => onMinusClick()}/>
+          <Button text={'+'} onClick={() => onPlusClick()}/>
         </div>
       </div>
       
-=======
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from './assets/vite.svg'
-import heroImg from './assets/hero.png'
-import './App.css'
-
-function App() {
-  const [count, setCount] = useState(0)
-
-  return (
-    <>
-      <section id="center">
-        <div className="hero">
-          <img src={heroImg} className="base" width="170" height="179" alt="" />
-          <img src={reactLogo} className="framework" alt="React logo" />
-          <img src={viteLogo} className="vite" alt="Vite logo" />
-        </div>
-        <div>
-          <h1>Get started</h1>
-          <p>
-            Edit <code>src/App.tsx</code> and save to test <code>HMR</code>
-          </p>
-        </div>
-        <button
-          type="button"
-          className="counter"
-          onClick={() => setCount((count) => count + 1)}
-        >
-          Count is {count}
-        </button>
-      </section>
-
-      <div className="ticks"></div>
-
-      <section id="next-steps">
-        <div id="docs">
-          <svg className="icon" role="presentation" aria-hidden="true">
-            <use href="/icons.svg#documentation-icon"></use>
-          </svg>
-          <h2>Documentation</h2>
-          <p>Your questions, answered</p>
-          <ul>
-            <li>
-              <a href="https://vite.dev/" target="_blank">
-                <img className="logo" src={viteLogo} alt="" />
-                Explore Vite
-              </a>
-            </li>
-            <li>
-              <a href="https://react.dev/" target="_blank">
-                <img className="button-icon" src={reactLogo} alt="" />
-                Learn more
-              </a>
-            </li>
-          </ul>
-        </div>
-        <div id="social">
-          <svg className="icon" role="presentation" aria-hidden="true">
-            <use href="/icons.svg#social-icon"></use>
-          </svg>
-          <h2>Connect with us</h2>
-          <p>Join the Vite community</p>
-          <ul>
-            <li>
-              <a href="https://github.com/vitejs/vite" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#github-icon"></use>
-                </svg>
-                GitHub
-              </a>
-            </li>
-            <li>
-              <a href="https://chat.vite.dev/" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#discord-icon"></use>
-                </svg>
-                Discord
-              </a>
-            </li>
-            <li>
-              <a href="https://x.com/vite_js" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#x-icon"></use>
-                </svg>
-                X.com
-              </a>
-            </li>
-            <li>
-              <a href="https://bsky.app/profile/vite.dev" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#bluesky-icon"></use>
-                </svg>
-                Bluesky
-              </a>
-            </li>
-          </ul>
-        </div>
-      </section>
-
-      <div className="ticks"></div>
-      <section id="spacer"></section>
->>>>>>> 73649df2d2b05c28fdc0753437691fee1a7717bd
     </>
   )
+};
+
+const mapStateToProps=(state)=>{
+  return{
+    calucrator:state.calucrator,
+  };
 }
 
-export default App
+export default connect(mapStateToProps,{
+  onNumberClick,
+  onClearClick,
+  onDivideClick,
+  onEqualClick,
+  onMinusClick,
+  onMultiplyClick,
+  onPlusClick
+})(App);

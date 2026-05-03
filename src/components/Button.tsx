@@ -1,11 +1,12 @@
 type props = {
   text: string;
+  onClick:()=>void;
 };
 
-const Button = ({text}:props) => {
+const Button = ({text,onClick}:props) => {
   return (
     <>
-    <button>{text}</button>
+    <button onClick={onClick}>{text}</button>
     </>
   )    
 }
